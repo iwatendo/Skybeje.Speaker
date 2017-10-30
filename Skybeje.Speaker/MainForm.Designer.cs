@@ -30,9 +30,11 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBoxVoiceCode = new System.Windows.Forms.GroupBox();
             this.checkBox_Clipboard = new System.Windows.Forms.CheckBox();
             this.comboBox_Device = new System.Windows.Forms.ComboBox();
-            this.label_Audio = new System.Windows.Forms.Label();
+            this.groupBoxSampleVoiceDevice = new System.Windows.Forms.GroupBox();
+            this.comboBox_SampleVoiceDevice = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.grouBox_AI_VoiceCode = new System.Windows.Forms.GroupBox();
             this.textBox_AI_VoiceCode = new System.Windows.Forms.TextBox();
@@ -84,6 +86,8 @@
             this.textBox_VT_APIKey = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBoxVoiceCode.SuspendLayout();
+            this.groupBoxSampleVoiceDevice.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.grouBox_AI_VoiceCode.SuspendLayout();
             this.groupBox_AI_VoiceCodeSetting.SuspendLayout();
@@ -116,26 +120,36 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.checkBox_Clipboard);
-            this.tabPage1.Controls.Add(this.comboBox_Device);
-            this.tabPage1.Controls.Add(this.label_Audio);
+            this.tabPage1.Controls.Add(this.groupBoxVoiceCode);
+            this.tabPage1.Controls.Add(this.groupBoxSampleVoiceDevice);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(587, 642);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "設定";
+            this.tabPage1.Text = "共通設定";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxVoiceCode
+            // 
+            this.groupBoxVoiceCode.Controls.Add(this.checkBox_Clipboard);
+            this.groupBoxVoiceCode.Controls.Add(this.comboBox_Device);
+            this.groupBoxVoiceCode.Location = new System.Drawing.Point(13, 85);
+            this.groupBoxVoiceCode.Name = "groupBoxVoiceCode";
+            this.groupBoxVoiceCode.Size = new System.Drawing.Size(557, 130);
+            this.groupBoxVoiceCode.TabIndex = 3;
+            this.groupBoxVoiceCode.TabStop = false;
+            this.groupBoxVoiceCode.Text = "クリップボード経由でのボイス再生デバイス";
             // 
             // checkBox_Clipboard
             // 
             this.checkBox_Clipboard.AutoSize = true;
             this.checkBox_Clipboard.Checked = true;
             this.checkBox_Clipboard.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_Clipboard.Location = new System.Drawing.Point(21, 27);
+            this.checkBox_Clipboard.Location = new System.Drawing.Point(13, 38);
             this.checkBox_Clipboard.Name = "checkBox_Clipboard";
             this.checkBox_Clipboard.Size = new System.Drawing.Size(150, 24);
-            this.checkBox_Clipboard.TabIndex = 1;
+            this.checkBox_Clipboard.TabIndex = 4;
             this.checkBox_Clipboard.Text = "クリップボードを監視";
             this.checkBox_Clipboard.UseVisualStyleBackColor = true;
             // 
@@ -143,19 +157,29 @@
             // 
             this.comboBox_Device.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Device.FormattingEnabled = true;
-            this.comboBox_Device.Location = new System.Drawing.Point(21, 100);
+            this.comboBox_Device.Location = new System.Drawing.Point(13, 78);
             this.comboBox_Device.Name = "comboBox_Device";
             this.comboBox_Device.Size = new System.Drawing.Size(330, 28);
-            this.comboBox_Device.TabIndex = 3;
+            this.comboBox_Device.TabIndex = 5;
             // 
-            // label_Audio
+            // groupBoxSampleVoiceDevice
             // 
-            this.label_Audio.AutoSize = true;
-            this.label_Audio.Location = new System.Drawing.Point(17, 77);
-            this.label_Audio.Name = "label_Audio";
-            this.label_Audio.Size = new System.Drawing.Size(140, 20);
-            this.label_Audio.TabIndex = 2;
-            this.label_Audio.Text = "音声出力先デバイス";
+            this.groupBoxSampleVoiceDevice.Controls.Add(this.comboBox_SampleVoiceDevice);
+            this.groupBoxSampleVoiceDevice.Location = new System.Drawing.Point(13, 6);
+            this.groupBoxSampleVoiceDevice.Name = "groupBoxSampleVoiceDevice";
+            this.groupBoxSampleVoiceDevice.Size = new System.Drawing.Size(557, 73);
+            this.groupBoxSampleVoiceDevice.TabIndex = 1;
+            this.groupBoxSampleVoiceDevice.TabStop = false;
+            this.groupBoxSampleVoiceDevice.Text = "サンプルボイス再生デバイス";
+            // 
+            // comboBox_SampleVoiceDevice
+            // 
+            this.comboBox_SampleVoiceDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_SampleVoiceDevice.FormattingEnabled = true;
+            this.comboBox_SampleVoiceDevice.Location = new System.Drawing.Point(13, 27);
+            this.comboBox_SampleVoiceDevice.Name = "comboBox_SampleVoiceDevice";
+            this.comboBox_SampleVoiceDevice.Size = new System.Drawing.Size(330, 28);
+            this.comboBox_SampleVoiceDevice.TabIndex = 2;
             // 
             // tabPage3
             // 
@@ -726,7 +750,9 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.groupBoxVoiceCode.ResumeLayout(false);
+            this.groupBoxVoiceCode.PerformLayout();
+            this.groupBoxSampleVoiceDevice.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.grouBox_AI_VoiceCode.ResumeLayout(false);
             this.grouBox_AI_VoiceCode.PerformLayout();
@@ -758,7 +784,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox textBox_VT_SampleVoice;
-        private System.Windows.Forms.Label label_Audio;
         private System.Windows.Forms.ComboBox comboBox_Device;
         private System.Windows.Forms.CheckBox checkBox_Clipboard;
         private System.Windows.Forms.TextBox textBox_VT_APIKey;
@@ -808,6 +833,9 @@
         private System.Windows.Forms.Label label_AI_VolumeValue;
         private System.Windows.Forms.Label label_AI_Volume;
         private System.Windows.Forms.TrackBar tracBar_AI_Volume;
+        private System.Windows.Forms.GroupBox groupBoxVoiceCode;
+        private System.Windows.Forms.GroupBox groupBoxSampleVoiceDevice;
+        private System.Windows.Forms.ComboBox comboBox_SampleVoiceDevice;
     }
 }
 

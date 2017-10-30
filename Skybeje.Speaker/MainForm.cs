@@ -66,6 +66,7 @@ namespace Skybeje.Speaker
             //  出力デバイス一覧を表示
             foreach (string device in DeviceUtil.GetDevices())
             {
+                comboBox_SampleVoiceDevice.Items.Add(device);
                 comboBox_Device.Items.Add(device);
 
                 //  Yamaha NETDUETTO Driver をある場合は、初期選択状態にする
@@ -73,6 +74,7 @@ namespace Skybeje.Speaker
                 index++;
             }
 
+            comboBox_SampleVoiceDevice.SelectedIndex = 0;
             comboBox_Device.SelectedIndex = initIndex;
         }
 
@@ -94,12 +96,12 @@ namespace Skybeje.Speaker
                     if (vtype.VoiceType == AITalkContener.VoiceTypeName)
                     {
                         var contener = JsonConvert.DeserializeObject<AITalkContener>(args.Text);
-                        SpeechAITalk(contener);
+                        SpeechAITalk(comboBox_Device.SelectedIndex, contener);
                     }
                     else if (vtype.VoiceType == VoiceTextContener.VoiceTypeName)
                     {
                         var contener = JsonConvert.DeserializeObject<VoiceTextContener>(args.Text);
-                        SpeechVoiceVT(contener);
+                        SpeechVoiceVT(comboBox_Device.SelectedIndex, contener);
                     }
                 }
                 catch (Exception)
@@ -239,16 +241,17 @@ namespace Skybeje.Speaker
             var contener = ToAITalkContener();
             contener.Message = textBox_AI_SampleVoice.Text;
 
-            SpeechAITalk(contener);
+            SpeechAITalk(comboBox_SampleVoiceDevice.SelectedIndex, contener);
         }
 
 
 
         /// <summary>
-        /// AITalkで音声合成してスピーカーに出力
+        /// 
         /// </summary>
+        /// <param name="deviceIndex"></param>
         /// <param name="contener"></param>
-        public void SpeechAITalk(AITalkContener contener)
+        public void SpeechAITalk(int deviceIndex, AITalkContener contener)
         {
 
             var msg = contener.GetVoiceMessageText();
@@ -260,13 +263,12 @@ namespace Skybeje.Speaker
             }
 
             var apikey = textBox_AI_APIKey.Text;
-            var deviceId = comboBox_Device.SelectedIndex;
             var ssml = contener.ToSSML();
 
 
             if (apikey.Length > 0)
             {
-                AITalkUtil.Speech(apikey, ssml, deviceId);
+                AITalkUtil.Speech(apikey, ssml, deviceIndex);
             }
             else
             {
@@ -339,15 +341,16 @@ namespace Skybeje.Speaker
             var contener = new VoiceTextContener(vtc);
             contener.Message = textBox_VT_SampleVoice.Text;
 
-            SpeechVoiceVT(contener);
+            SpeechVoiceVT(comboBox_SampleVoiceDevice.SelectedIndex, contener);
         }
 
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="msg"></param>
-        private async void SpeechVoiceVT(VoiceTextContener contener)
+        /// <param name="deviceIndex"></param>
+        /// <param name="contener"></param>
+        private async void SpeechVoiceVT(int deviceIndex, VoiceTextContener contener)
         {
             var msg = contener.GetVoiceMessageText();
 
@@ -369,15 +372,12 @@ namespace Skybeje.Speaker
 
             try
             {
-                //  指定デバイスの取得
-                var device = comboBox_Device.SelectedIndex;
-
                 //  VoiceTextから音声データを取得
                 var bytes = await vtc.GetVoiceAsync(msg);
                 Stream stream = new MemoryStream(bytes);
 
                 //  再生処理
-                DeviceUtil.PlaySound_VoiceText(stream, device);
+                DeviceUtil.PlaySound_VoiceText(stream, deviceIndex);
             }
             catch (VoiceTextException vex)
             {
