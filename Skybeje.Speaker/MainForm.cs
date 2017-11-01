@@ -3,7 +3,6 @@ using Skybeje.Speaker.AITalk;
 using Skybeje.Speaker.Contener;
 using Skybeje.Speaker.Util;
 using System;
-using System.IO;
 using System.Windows.Forms;
 using VoiceTextWebAPI.Client;
 
@@ -374,10 +373,9 @@ namespace Skybeje.Speaker
             {
                 //  VoiceTextから音声データを取得
                 var bytes = await vtc.GetVoiceAsync(msg);
-                Stream stream = new MemoryStream(bytes);
 
                 //  再生処理
-                DeviceUtil.PlaySound_VoiceText(stream, deviceIndex);
+                DeviceUtil.PlaySound(bytes, deviceIndex);
             }
             catch (VoiceTextException vex)
             {
