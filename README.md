@@ -1,24 +1,32 @@
 ## Skybeje.Speaker
-* Skybeje.Speakerは、Windows上で音声合成して再生させるアプリです。
-* [AITalk](http://www.ai-j.jp/cloud/webapi/) または [VoiceText](http://voicetext.jp/)のWebAPIを利用して音声合成をします
+* Skybeje.Speakerは音声合成WebAPI（[AITalk](http://www.ai-j.jp/cloud/webapi/)及び[VoiceText](http://voicetext.jp/)）を使用して文章を音声に変換するWindowsアプリです。
+* AITalkとVoiceText合わせて、17種類の音声の合成が可能です。
+* また[Skybeje](https://github.com/iwatendo/skybeje)と連動させることができます。
+* アクター / アイコンごとに音声パラメータを設定し、チャットの文章を喋らせることが可能です。
 * ![スクリーンショット](https://raw.githubusercontent.com/wiki/iwatendo/skybeje.speaker/images/ss_screenshot.png)
+
 ## 機能
-* AITalk / VoiceText のWebAPIを使って音声合成し、Windows上で音声を再生します
-* __但し、上記のWebAPIは基本的に商用利用や二次利用は禁止です。__ 使用する場合は利用規約を確認してください。
-* 単独でも動作しますが、[Skybeje](https://github.com/iwatendo/skybeje) と連動させ、自分のチャット発言を喋らせることができます
-* 仮想マイクデバイス(YAMAHA NETDUETTO等）を使用する事により、音声通話やライブ配信に利用できます
+* 音声パラメータを指定して音声合成し、指定スピーカーで再生させる事ができます。
+* １回に100文字まで変換できます。
+* クリップボード経由でパラメータや文章を指定して、音声合成させる事ができます。
+* 仮想マイクデバイス(YAMAHA NETDUETTO等）を使用する事により、音声通話やライブ配信にも利用できます。
 
 ## 使用方法
-* AITalkまたはVoiceTextのAPIキーを取得し、APIキーを設定します。
-* 音声パラメータを設定し「サンプル再生ボタン」を押すと、サンプルテキストの内容で音声が再生されます。
+* AITalkまたはVoiceTextのAPIキーを取得し、APIキーを入力します。
+* 音声パラメータを指定して「Sample Voice」ボタンを押すと、テキストの文章で音声合成されます。
 
 ## 音声合成のWebAPIについて
 * __以下のページからAPIキーの申請ができます__
 * [AITalk（docomo developer suppurt)](https://dev.smt.docomo.ne.jp/?p=docs.api.page&api_name=text_to_speech&p_name=api_1)
 * [VoiceText](https://cloud.voicetext.jp/webapi)
 
+## 注意事項
+* __AITalk及びVoiceTextのWebAPIは、基本的に商用利用や二次利用が禁止されています。__
+* __このアプリを利用する場合、必ずそれぞれのAPIの利用規約を確認してください。__
+
 ## Skybejeとの連動
-* 自分のチャットの発言を音声合成で喋らせる事ができます。
+* 自身のチャット発言を、音声合成で喋らせる事ができます。
+* アクター / アイコン毎に音声パラメータの指定が可能です。
 * 仮想マイクデバイスを利用することにより、グループ通話やライブ配信の音声として利用できます。
 * 但し、他のメンバーのチャット発言の読み上げはできません。
 
@@ -40,9 +48,9 @@
 * ![サウンド設定](https://raw.githubusercontent.com/wiki/iwatendo/skybeje.speaker/images/ss_yamaha.png)
 
 ## 処理の概要
-* Skybeje側は、アイコンに設定されたVoiceCodeに文章を設定してクリップボードにコピーします。
+* Skybeje側は、アイコンに設定されたVoiceCodeの{{Message}}に文章を設定し、クリップボードにコピーします。
 * Skybeje.Speakerはクリップボードを監視しています。
-* クリップボードに VoiceCodeがコピーされたタイミングで、指定されたパラメータで音声合成。
+* クリップボードに VoiceCodeがコピーされたタイミングで、指定されたパラメータで音声合成します。
 * Skybeje.Speaker側で、仮想マイクデバイスに音声を流します。
 * Skybeje側で、上記を音声ストリームに流します。
 
