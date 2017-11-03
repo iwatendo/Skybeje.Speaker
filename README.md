@@ -39,16 +39,16 @@
 * ![パラメータ](https://raw.githubusercontent.com/wiki/iwatendo/skybeje.speaker/images/ss_voicecode.png)
 
 ## Skybejeで音声合成を音声ストリームに流す方法
-* YAMAHAの[NETDUETTO β2](http://netduetto.net/download/)のデバイスドライバを利用する事で実現できます
-* 上記のページから、NETDUETTOβ2をダウンロードし、インストールします。
-* 音声合成の出力デバイスと、配信またはグループ通話機能のマイクデバイスにて、YAMAHA NETDUETTO Driverを選択します
+* YAMAHAの[NETDUETTO β2](http://netduetto.net/download/)の仮想マイクドライバを使用します。
+* NETDUETTOβ2をダウンロードしてインストールすると、Yamaha NETDUETTO Driverが登録されます。
+* 音声合成の出力デバイスと、配信またはグループ通話機能のマイクデバイスにて、YAMAHA NETDUETTO Driverを選択することで、音声合成音をマイクに流すことができます。
 * ![ドライバー](https://raw.githubusercontent.com/wiki/iwatendo/skybeje.speaker/images/ss_device.png)
-* 自分のPC上でも音声合成した声を聴きたい場合は、サウンドドライバのプロパティの設定を変更してください。
-* ※下図、右側の「このデバイスを聴く」にチェックをいれてください。
+* ただしデフォルト設定の場合、マイクに流れた音声は聞こえません。
+* 音声を確認しながら使用したい場合は、YAMAHA NETDUETTO Driver の設定を変更してください。（下図右側の「このデバイスを聴く」にチェックをいれてください）
 * ![サウンド設定](https://raw.githubusercontent.com/wiki/iwatendo/skybeje.speaker/images/ss_yamaha.png)
 
-## 処理の概要
-* Skybeje側は、アイコンに設定されたVoiceCodeの{{Message}}に文章を設定し、クリップボードにコピーします。
+## 連動処理の概要について
+* チャット時にアイコンに設定されたVoiceCodeの{{Message}}に文章を設定し、クリップボードにコピーします。
 * Skybeje.Speakerはクリップボードを監視しています。
 * クリップボードに VoiceCodeがコピーされたタイミングで、指定されたパラメータで音声合成します。
 * Skybeje.Speaker側で、仮想マイクデバイスに音声を流します。
