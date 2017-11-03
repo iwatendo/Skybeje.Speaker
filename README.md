@@ -12,7 +12,8 @@
 * AITalkまたはVoiceTextのAPIキーを取得し、APIキーを設定します。
 * 音声パラメータを設定し「サンプル再生ボタン」を押すと、サンプルテキストの内容で音声が再生されます。
 
-## 音声合成のWebAPIについて（以下のリンクから、APIキーの申請ができます）
+## 音声合成のWebAPIについて
+* __以下のページからAPIキーの申請ができます__
 * [AITalk（docomo developer suppurt)](https://dev.smt.docomo.ne.jp/?p=docs.api.page&api_name=text_to_speech&p_name=api_1)
 * [VoiceText](https://cloud.voicetext.jp/webapi)
 
@@ -38,7 +39,7 @@
 * ※下図、右側の「このデバイスを聴く」にチェックをいれてください。
 * ![サウンド設定](https://raw.githubusercontent.com/wiki/iwatendo/skybeje.speaker/images/ss_yamaha.png)
 
-## 動作の概要
+## 処理の概要
 * Skybeje側は、アイコンに設定されたVoiceCodeに文章を設定してクリップボードにコピーします。
 * Skybeje.Speakerはクリップボードを監視しています。
 * クリップボードに VoiceCodeがコピーされたタイミングで、指定されたパラメータで音声合成。
@@ -49,6 +50,6 @@
 * Visual Studio 2017 Community
 * Windows10 professional 64bit
 
-## 使用ライブラリ
-* [VoiceText WebAPI Client for .NET](https://github.com/jsakamoto/voicetext-webapi-client4net)
+## 使用したライブラリ
 * [NAudio](https://naudio.codeplex.com/)
+* [VoiceText WebAPI Client for .NET](https://github.com/jsakamoto/voicetext-webapi-client4net)
