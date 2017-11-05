@@ -11,6 +11,11 @@
 * 仮想マイクデバイス(YAMAHA NETDUETTO等）を使用する事により、音声通話やライブ配信にも利用できます。
 * Skybejeでは アクター/アイコンごとに音声パラメータの設定でき、チャットの発言を喋らせることができます。
 
+## 注意事項
+* AITalk及びVoiceTextの無料で利用できるバージョンのWebAPIは、基本的に商用利用や二次利用が禁止されています。
+* このプログラムは、開発者向けの検証目的の為のアプリとして公開します。
+* このアプリを利用する場合、それぞれのサービスのAPIの利用規約を必ず確認してください。
+
 ## ダウンロード
 * [Skybeje.Speakerのダウンロード](https://raw.githubusercontent.com/wiki/iwatendo/skybeje.speaker/images/Skybeje.Speaker.zip)
 * ※WindowsFormアプリです。Windows10でのみ動作確認済です
@@ -24,10 +29,6 @@
 * __以下のページからAPIキーの申請ができます__
 * [AITalk（docomo developer suppurt)](https://dev.smt.docomo.ne.jp/?p=docs.api.page&api_name=text_to_speech&p_name=api_1)
 * [VoiceText](https://cloud.voicetext.jp/webapi)
-
-## 注意事項
-* __AITalk及びVoiceTextのWebAPIは、基本的に商用利用や二次利用が禁止されています。__
-* __このアプリを利用する場合、必ずそれぞれのAPIの利用規約を確認してください。__
 
 ## Skybejeとの連動
 * 自身のチャット発言を、音声合成で喋らせる事ができます。（他のメンバーのチャット発言の読み上げはできません）
