@@ -1,4 +1,5 @@
 ## Skybeje.Speaker
+
 * Skybeje.Speakerは音声合成API（[AITalk](http://www.ai-j.jp/cloud/webapi/)及び[VoiceText](http://voicetext.jp/)）を使用して、文章を音声に変換するWindowsアプリです。
 * [Skybeje](https://github.com/iwatendo/skybeje)と連動させることができます。
 * ![スクリーンショット](https://raw.githubusercontent.com/wiki/iwatendo/skybeje.speaker/images/ss_screenshot.png)
@@ -27,8 +28,10 @@
 
 ## 音声合成のWebAPIについて
 * __以下のページからAPIキーの申請ができます__
-* [AITalk（docomo developer suppurt)](https://dev.smt.docomo.ne.jp/?p=docs.api.page&api_name=text_to_speech&p_name=api_1)
 * [VoiceText](https://cloud.voicetext.jp/webapi)
+* __重要__
+* Docomo Developer supportにて、[AITalkの提供が終了](https://dev.smt.docomo.ne.jp/?p=notice.detail&news_id=289)となりました。
+* その為、AITalkの音声合成は現在Skybeje.Speakerでは利用できません。
 
 ## Skybejeとの連動
 * 自身のチャット発言を、音声合成で喋らせる事ができます。（他のメンバーのチャット発言の読み上げはできません）
